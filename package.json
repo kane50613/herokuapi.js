@@ -20,7 +20,7 @@
     "heroku"
   ],
   "author": "Gary50613",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Gary50613/herokuapi.js/issues"
   },
