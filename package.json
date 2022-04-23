@@ -1,0 +1,37 @@
+{
+  "name": "heroku-api-client",
+  "version": "0.0.0",
+  "description": "Unofficial heroku api wrapper for Node.JS",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+    "test": "npm run compile && node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gary50613/heroku-api-client.git"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Gary50613",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gary50613/heroku-api-client/issues"
+  },
+  "homepage": "https://github.com/Gary50613/heroku-api-client#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.25"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7"
+  }
+}
