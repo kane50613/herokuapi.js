@@ -21,12 +21,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-        matrix:
-            node-version: ['16', '17']
-        fail-fast: false
 
-    name: Node ${{ matrix.node-version }}
+    name: Node 16
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
@@ -34,7 +30,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
