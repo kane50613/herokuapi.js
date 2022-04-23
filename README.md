@@ -17,7 +17,7 @@ npm i herokuapi.js
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
 
-- mjs
+- mjs / esm
     ```ts 
     import { getAccount } from "herokuapi.js";
     
