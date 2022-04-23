@@ -1,3 +1,4 @@
 src
 tsconfig*
 *.ts
+test
