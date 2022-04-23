@@ -1,7 +1,7 @@
 {
-  "name": "heroku.js",
+  "name": "herokuapi.js",
   "version": "0.0.0",
-  "description": "Unofficial heroku api wrapper for Node.JS",
+  "description": "Unofficial heroku api wrapper for NodeJS",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gary50613/heroku.js.git"
+    "url": "git+https://github.com/Gary50613/herokuapi.js.git"
   },
   "keywords": [
     "heroku"
@@ -22,9 +22,9 @@
   "author": "Gary50613",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Gary50613/heroku.js/issues"
+    "url": "https://github.com/Gary50613/herokuapi.js/issues"
   },
-  "homepage": "https://github.com/Gary50613/heroku.js#readme",
+  "homepage": "https://github.com/Gary50613/herokuapi.js#readme",
   "devDependencies": {
     "tsup": "^5.12.6",
     "typescript": "^4.6.3",

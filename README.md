@@ -1,25 +1,25 @@
-# Heroku.js
+# herokuapi.js
 
 Unofficial heroku api wrapper for NodeJS
 
 ### 📦 Install
 
 ```shell
-npm i heroku.js
+npm i herokuapi.js
 ```
 
 ### 📖 Usage 
 
 - commonjs
     ```js 
-    const {getAccount} = require("heroku.js")
+    const {getAccount} = require("herokuapi.js")
     
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
 
 - mjs
     ```ts 
-    import { getAccount } from "heroku.js";
+    import { getAccount } from "herokuapi.js";
     
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
