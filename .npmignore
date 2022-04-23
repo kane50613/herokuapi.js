@@ -1,6 +1,6 @@
 src
-tsconfig*
-*.ts
+tsconfig.json
+tsup.config.json
 test
 .idea
 .github
