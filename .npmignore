@@ -2,3 +2,5 @@ src
 tsconfig*
 *.ts
 test
+.idea
+.github
