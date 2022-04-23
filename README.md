@@ -1,25 +1,25 @@
-# Heroku-API-Client
+# Heroku.js
 
 Unofficial heroku api wrapper for NodeJS
 
 ### 📦 Install
 
 ```shell
-npm i heroku-api-client
+npm i heroku.js
 ```
 
 ### 📖 Usage 
 
 - commonjs
     ```js 
-    const {getAccount} = require("heroku-api-client")
+    const {getAccount} = require("heroku.js")
     
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
 
 - mjs
     ```ts 
-    import { getAccount } from "heroku-api-client";
+    import { getAccount } from "heroku.js";
     
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
