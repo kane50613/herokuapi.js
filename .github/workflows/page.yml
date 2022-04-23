@@ -36,5 +36,5 @@ jobs:
           git add .
           git commit -am "Automated Docs"
           git branch -M gh-pages
-          git remote add origin 'https://github.com/Gary50613/herokuapi.js'
+          git remote add origin 'https://${{ secrets.GITHUB_TOKEN }}@github.com/Gary50613/herokuapi.js'
           git push origin gh-pages -f
