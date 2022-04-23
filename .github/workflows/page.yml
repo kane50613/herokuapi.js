@@ -26,15 +26,7 @@ jobs:
           npm_config_yes: true
 
       - name: Add CNAME, Publish
-        run: |
-          cd docs/
-          touch CNAME
-          echo 'heroku.js.org' > CNAME
-          git init
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -am "Automated Docs"
-          git branch -M gh-pages
-          git remote add origin 'https://${{ secrets.GITHUB_TOKEN }}@github.com/Gary50613/herokuapi.js'
-          git push origin gh-pages -f
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
