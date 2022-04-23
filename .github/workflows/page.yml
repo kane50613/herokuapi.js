@@ -35,4 +35,4 @@ jobs:
           git add .
           git commit -am "Automated Docs"
           git branch -M gh-pages
-          git push
+          git push origin gh-pages
