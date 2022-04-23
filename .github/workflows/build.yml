@@ -7,6 +7,8 @@ on:
     paths:
       - 'src/**'
       - '.github/workflows/**'
+      - 'package.json'
+      - 'tsup.config.json'
   pull_request:
     branches:
       - master
@@ -14,6 +16,8 @@ on:
     paths:
       - 'src/**'
       - '.github/workflows/**'
+      - 'package.json'
+      - 'tsup.config.json'
 jobs:
   build:
     runs-on: ubuntu-latest
