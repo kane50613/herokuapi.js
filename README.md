@@ -10,6 +10,8 @@ npm i herokuapi.js
 
 ### 📖 Usage 
 
+> [Documentation](https://heroku.js.org/)
+
 - commonjs
     ```js 
     const {getAccount} = require("herokuapi.js")
@@ -17,12 +19,16 @@ npm i herokuapi.js
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
 
-- mjs / esm
+- mjs / esm / ts
     ```ts 
     import { getAccount } from "herokuapi.js";
     
     const account = await getAccount(process.env.HEROKU_API_KEY)
     ```
+
+### 👇 Used By
+
+- [YEE式機器龍](https://yeecord.com/) ([Github](https://github.com/Gary50613/yeecord-project))
 
 ### ❤️  Contribute
 
