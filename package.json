@@ -24,6 +24,7 @@
   "bugs": {
     "url": "https://github.com/Gary50613/herokuapi.js/issues"
   },
+  "readme": "README.md",
   "homepage": "https://github.com/Gary50613/herokuapi.js#readme",
   "devDependencies": {
     "@types/node": "^17.0.25",
