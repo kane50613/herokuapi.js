@@ -33,17 +33,15 @@ export type IdentityProvider = {
 	}
 }
 
-export type App = {
+export type App = Base & {
 	acm: boolean,
 	archived_at?: DateTime,
 	build_stack: Base,
 	buildpack_provided_description?: string,
 	created_at: DateTime,
 	git_url: string,
-	id: UUID,
 	internal_routing: boolean,
 	maintenance: boolean,
-	name: string,
 	organization: Base,
 	owner: {
 		email: string,
@@ -58,6 +56,37 @@ export type App = {
 	team: Base,
 	updated_at: DateTime,
 	web_url: string
+}
+
+export type PartialApp = {
+	build_stack: string,
+	maintenance: boolean,
+	name: string
+}
+
+export type CreateDynoOptions = {
+	command: string,
+	attach?: boolean,
+	env?: any,
+	force_no_tty?: boolean,
+	size?: string,
+	time_to_live?: number,
+	type?: string
+}
+
+export type Dyno = Base & {
+	app: Base,
+	attach_url?: string,
+	command: string,
+	created_at: DateTime,
+	release: {
+		id: UUID,
+		version: number
+	},
+	state: "crashed" | "down" | "idle" | "starting" | "up",
+	size: string,
+	type: string,
+	updated_at: DateTime
 }
 
 export type Base = {

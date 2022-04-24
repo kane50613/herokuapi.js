@@ -1,4 +1,4 @@
-import { Account, APIToken, App, Region, Stack, Team } from "./types";
+import { Account, APIToken, App, CreateDynoOptions, Dyno, PartialApp, Region, Stack, Team } from "./types";
 import { makeRequest } from "./request";
 
 /**
@@ -31,6 +31,139 @@ export function createApp(auth: APIToken, name: string, region: string, stack: s
  */
 export function deleteApp(auth: APIToken, name: string): Promise<App> {
 	return makeRequest(`/apps/${name}`, 'delete', auth)
+}
+
+/**
+ * @description Enable ACM flag for an app
+ * @param auth {APIToken} heroku api token
+ * @param name {string} name for app to modify
+ */
+export function enableAppAcm(auth: string, name: string): Promise<App> {
+	return makeRequest(`/apps/${name}/acm`, 'post', auth)
+}
+
+/**
+ * @description Disable ACM flag for an app
+ * @param auth {APIToken} heroku api token
+ * @param name {string} name for app to modify
+ */
+export function disableAppAcm(auth: string, name: string): Promise<App> {
+	return makeRequest(`/apps/${name}/acm`, 'delete', auth)
+}
+
+/**
+ * @description Enable or Disable ACM flag for an app
+ * @param auth {APIToken} heroku api token
+ * @param name {string} name for app to modify
+ * @param acm {boolean} whether to enable or not
+ */
+export function updateAppAcm(auth: APIToken, name: string, acm: boolean): Promise<App> {
+	return acm ? enableAppAcm(auth, name) : disableAppAcm(auth, name)
+}
+
+/**
+ * @description Refresh ACM for an app
+ * @param auth {APIToken} heroku api token
+ * @param name {string} name for app to modify
+ */
+export function refreshAppAcm(auth: APIToken, name: string): Promise<App> {
+	return makeRequest(`/apps/${name}/acm`, 'patch', auth)
+}
+
+/**
+ * @description Create a new dyno.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable to create dyno
+ * @param options {CreateDynoOptions} options
+ */
+export function createDyno(auth: APIToken, app: App | string, options: CreateDynoOptions): Promise<Dyno> {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}/dynos`, 'post', auth, options)
+}
+
+/**
+ * @description Restart dyno.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable
+ * @param dyno {Dyno|string} dyno resolvable to restart. If not provided, all dynos will be restart
+ */
+export function restartDyno(auth: APIToken, app: App | string, dyno?: Dyno | string) {
+	app = (app as App).id || app
+	dyno = (dyno as Dyno).id || dyno
+
+	if(!dyno)
+		return restartAllDynos(auth, app)
+
+	return makeRequest(`/apps/${app}/dynos/${dyno}`, 'delete', auth, null, false)
+}
+
+/**
+ * @description Restart all dynos.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable
+ */
+export function restartAllDynos(auth: APIToken, app: App | string) {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}/dynos`, 'delete', auth, null, false)
+}
+
+/**
+ * @description Stop dyno.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable
+ * @param dyno {Dyno|string} dyno resolvable to stop.
+ */
+export function stopDyno(auth: APIToken, app: App | string, dyno: Dyno | string) {
+	app = (app as App).id || app
+	dyno = (dyno as Dyno).id || dyno
+
+	return makeRequest(`/apps/${app}/dynos/${dyno}/actions/stop`, 'post', auth, null, false)
+}
+
+/**
+ * @description Info for existing dyno.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable
+ * @param dyno {Dyno|string} dyno resolvable to stop.
+ */
+export function getDyno(auth: APIToken, app: App | string, dyno: Dyno | string) {
+	app = (app as App).id || app
+	dyno = (dyno as Dyno).id || dyno
+
+	return makeRequest(`/apps/${app}/dynos/${dyno}`, 'get', auth)
+}
+
+/**
+ * @description List existing dynos.
+ * @param auth {APIToken} heroku api token
+ * @param app {App|string} app resolvable
+ */
+export function getDynos(auth: APIToken, app: App | string) {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}/dynos`, 'get', auth)
+}
+
+/**
+ * @description Update an existing app.
+ * @param auth {APIToken} heroku api token
+ * @param name {string} name for app to update
+ * @param options {Partial<PartialApp>} options to update
+ */
+export function updateApp(auth: APIToken, name: string, options: Partial<PartialApp>): Promise<App> {
+	return makeRequest(`/apps/${name}`, 'patch', auth, options)
+}
+
+/**
+ * @description List owned and collaborated apps (excludes team apps).
+ * @param auth {APIToken} heroku api token
+ * @param email {string} owner's email
+ * @returns {App}
+ */
+export function getAppsByEmail(auth: APIToken, email: string): Promise<App> {
+	return makeRequest(`/users/${email}/apps`, 'get', auth)
 }
 
 /**
