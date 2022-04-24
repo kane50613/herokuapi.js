@@ -12,21 +12,23 @@ npm i herokuapi.js
 
 > [Documentation](https://heroku.js.org/)
 
+`auth` could be an optional parameter, if not set, `HEROKU_API_KEY` will be used by default!
+
 - commonjs
     ```js 
     const {getAccount} = require("herokuapi.js")
-    
-    const account = await getAccount(process.env.HEROKU_API_KEY)
+     
+    const account = await getAccount()
     ```
 
 - mjs / esm / ts
     ```ts 
     import { getAccount } from "herokuapi.js";
     
-    const account = await getAccount(process.env.HEROKU_API_KEY)
+    const account = await getAccount()
     ```
 
-### 👇 Used By
+### ✨ Used By
 
 - [YEE式機器龍](https://yeecord.com/) ([Github](https://github.com/Gary50613/yeecord-project))
 
