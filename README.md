@@ -1,4 +1,4 @@
-# herokuapi.js
+# 🚀 herokuapi.js 
 
 [![npm version](https://badge.fury.io/js/herokuapi.js.svg)](https://badge.fury.io/js/herokuapi.js)
 
