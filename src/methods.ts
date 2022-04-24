@@ -3,7 +3,7 @@ import { makeRequest } from "./request";
 
 /**
  * @description get heroku account
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @returns {Account}
  */
 export function getAccount(auth: APIToken): Promise<Account> {
@@ -12,7 +12,7 @@ export function getAccount(auth: APIToken): Promise<Account> {
 
 /**
  * @description create an app
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} name for app to create
  * @param region {string} heroku region `id` or `name` (by using `getRegions` method to resolve)
  * @param stack {string} heroku stack `id` or `name` (by using `getStacks` method to resolve)
@@ -26,7 +26,7 @@ export function createApp(auth: APIToken, name: string, region: string, stack: s
 
 /**
  * @description delete an app
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} name for app to delete
  */
 export function deleteApp(auth: APIToken, name: string): Promise<App> {
@@ -35,7 +35,7 @@ export function deleteApp(auth: APIToken, name: string): Promise<App> {
 
 /**
  * @description get an app info
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} app name
  * @returns {App}
  */
@@ -45,7 +45,7 @@ export function getApp(auth: APIToken, name: string): Promise<App> {
 
 /**
  * @description get all apps available
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @returns {App[]}
  */
 export function getApps(auth: APIToken): Promise<App[]> {
@@ -54,7 +54,7 @@ export function getApps(auth: APIToken): Promise<App[]> {
 
 /**
  * @description get all available regions
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @returns {Region[]}
  */
 export function getRegions(auth: APIToken): Promise<Region> {
@@ -63,7 +63,7 @@ export function getRegions(auth: APIToken): Promise<Region> {
 
 /**
  * @description get region info
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} region name or id
  * @returns {Region}
  */
@@ -73,7 +73,7 @@ export function getRegion(auth: APIToken, name: string): Promise<Region> {
 
 /**
  * @description get available stacks
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @returns {Stack[]}
  */
 export function getStacks(auth: APIToken): Promise<Stack[]> {
@@ -82,7 +82,7 @@ export function getStacks(auth: APIToken): Promise<Stack[]> {
 
 /**
  * @description get stack info
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} stack name or id
  * @returns {Stack}
  */
@@ -92,7 +92,7 @@ export function getStack(auth: APIToken, name: string): Promise<Stack> {
 
 /**
  * @description get available teams
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @returns {Team[]}
  */
 export function getTeams(auth: APIToken): Promise<Team[]> {
@@ -101,7 +101,7 @@ export function getTeams(auth: APIToken): Promise<Team[]> {
 
 /**
  * @description get team info
- * @param auth {APIToken}
+ * @param auth {APIToken} heroku api token
  * @param name {string} team name or id
  * @returns {Team}
  */
