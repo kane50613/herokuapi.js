@@ -17,7 +17,7 @@ export async function makeRequest(endpoint: String, method: Method, auth?: Strin
 			Authorization: `Bearer ${auth || process.env.HEROKU_API_KEY}`,
 			Accept: `application/vnd.heroku+json; version=3`,
 		},
-		body: typeof body === "object" ? JSON.stringify(body) : body
+		body: typeof body === "object" && body ? JSON.stringify(body) : body
 	})
 
 	return json ? await response.json() : response
