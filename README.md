@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/herokuapi.js.svg)](https://badge.fury.io/js/herokuapi.js)
 
-[![NPM](https://nodei.co/npm/herokuapi.js.png)](https://npmjs.org/package/herokapi.js)
+[![NPM](https://nodei.co/npm/herokuapi.js.png)](https://npmjs.org/package/herokuapi.js)
 
 Unofficial heroku api wrapper for NodeJS
 
