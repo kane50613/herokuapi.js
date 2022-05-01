@@ -131,6 +131,23 @@ export type Region = Base & {
 	updated_at: DateTime
 }
 
+export type Formation = Required<BatchUpdateFormation> & {
+	app: Base,
+	command: string,
+	created_at: DateTime,
+	id: UUID,
+	updated_at: DateTime
+}
+
+export type BatchUpdateFormation = UpdateFormation & {
+	type: string,
+}
+
+export type UpdateFormation = {
+	quantity?: number,
+	size?: string
+}
+
 export type AccountType = "team" | "enterprise-account"
 export type TeamRole = "admin" | "collaborator" | "member" | "owner" | null
 

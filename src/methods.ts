@@ -1,4 +1,16 @@
-import { Account, APIToken, App, CreateDynoOptions, Dyno, PartialApp, Region, Stack, Team } from "./types";
+import {
+	Account,
+	APIToken,
+	App, BatchUpdateFormation,
+	CreateDynoOptions,
+	Dyno,
+	Formation,
+	PartialApp,
+	Region,
+	Stack,
+	Team, UpdateFormation,
+	UUID
+} from "./types";
 import { makeRequest } from "./request";
 
 /**
@@ -249,4 +261,57 @@ export function getTeams(auth?: APIToken): Promise<Team[]> {
  */
 export function getTeam(name: string, auth?: APIToken): Promise<Team> {
 	return makeRequest(`/stacks/${name}`, 'get', auth)
+}
+
+/**
+ * @description Info for a process type
+ * @param app {App|string} app resolvable
+ * @param formation {UUID|string} formation id or type name
+ * @param auth {APIToken?} heroku api token
+ * @returns {Formation}
+ */
+export function getFormationInfo(app: App | string, formation: UUID | string, auth?: APIToken): Promise<Formation> {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}/formation/${formation}`, 'get', auth)
+}
+
+/**
+ * @description List process type formation
+ * @param app {App|string} app resolvable
+ * @param auth {APIToken?} heroku api token
+ * @returns {Formation[]}
+ */
+export function getFormationList(app: App | string, auth?: APIToken): Promise<Formation[]> {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}`, 'get', auth)
+}
+
+/**
+ * @description Batch update process types
+ * @param app {App|string} app resolvable
+ * @param updates {BatchUpdateFormation[]} updated formations
+ * @param auth {APIToken?} heroku api token
+ * @returns {Formation[]}
+ */
+export function updateFormations(app: App | string, updates: BatchUpdateFormation[], auth?: APIToken): Promise<Formation[]> {
+	app = (app as App).id || app
+
+	return makeRequest(`/apps/${app}/formation`, 'patch', auth, updates)
+}
+
+/**
+ * @description Update process type
+ * @param app {App|string} app resolvable
+ * @param formation {Formation|string} formation to be updated
+ * @param update {UpdateFormation} updated formation
+ * @param auth {APIToken?} heroku api token
+ * @returns {Formation}
+ */
+export function updateFormation(app: App | string, formation: Formation | string, update: UpdateFormation, auth?: APIToken): Promise<Formation> {
+	app = (app as App).id || app
+	formation = (formation as Formation).id || formation
+
+	return makeRequest(`/apps/${app}/formation/${formation}`, 'patch', auth, update)
 }
