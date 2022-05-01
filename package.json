@@ -1,6 +1,6 @@
 {
   "name": "herokuapi.js",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Unofficial heroku api wrapper for NodeJS",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
