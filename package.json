@@ -19,13 +19,17 @@
   "keywords": [
     "heroku"
   ],
-  "author": "Gary50613",
+  "author": {
+    "name": "Kane",
+    "email": "kane@yeecord.com",
+    "url": "https://yeecord.com/"
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Gary50613/herokuapi.js/issues"
   },
   "readme": "README.md",
-  "homepage": "https://github.com/Gary50613/herokuapi.js#readme",
+  "homepage": "https://heroku.js.org/",
   "devDependencies": {
     "@types/node": "^17.0.25",
     "@types/node-fetch": "^2.6.1",
